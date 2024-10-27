@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tips-style.css">
+    <link rel="stylesheet" href="popup-window.css">
+    <link rel="icon" href="assets/brain.svg">
+    <title>Dicas do Jogo de Adivinhação de Números</title>
+</head>
+<body>
+    <!-- Main container for the tips page -->
+    <div class="container">
+        <h1>Dicas do Jogo de Adivinhação de Números</h1>
+        <!-- Container for displaying the tip content -->
+        <div id="tipContainer">
+            <h2>Dica</h2>
+            <p id="tip-content"></p>
+        </div>
+        <!-- Button to reset the game -->
+        <button id="resetButton" onclick="resetGame()">Reiniciar Jogo</button>
+        <!-- Button to show advanced math tips -->
+        <button id="brain" onclick="brain()">
+            <img src="assets/brain.svg" alt="Ícone de Cérebro">
+        </button>
+    </div>
+    <!-- Include the main game script -->
+    <script src="script.js"></script>
+    <script>
+        // Function to update the tip content
+        function updateTip() {
+            const tipContent = document.getElementById('tip-content');
+            tipContent.innerHTML = `
+                <h2>Dicas Matemáticas sobre ${randomNumber}</h2>
+                <ul>
+                    <!-- List of mathematical properties and operations on the random number -->
+                    <li>Fatores: ${getFactors(randomNumber).join(', ')}</li>
+                    <li>É Primo: ${isPrime(randomNumber) ? 'Sim' : 'Não'}</li>
+                    <li>Raiz Quadrada: ${Math.sqrt(randomNumber).toFixed(2)}</li>
+                    <li>Ao Quadrado: ${randomNumber * randomNumber}</li>
+                    <li>Ao Cubo: ${Math.pow(randomNumber, 3)}</li>
+                    <li>Binário: ${randomNumber.toString(2)}</li>
+                    <li>Hexadecimal: ${randomNumber.toString(16).toUpperCase()}</li>
+                    <li>Octal: ${randomNumber.toString(8)}</li>
+                    <li>Valor Absoluto: ${Math.abs(randomNumber)}</li>
+                    <li>Inteiro Mais Próximo: ${Math.round(randomNumber)}</li>
+                    <li>Teto: ${Math.ceil(randomNumber)}</li>
+                    <li>Piso: ${Math.floor(randomNumber)}</li>
+                    <li>Seno: ${Math.sin(randomNumber).toFixed(4)}</li>
+                    <li>Cosseno: ${Math.cos(randomNumber).toFixed(4)}</li>
+                    <li>Tangente: ${Math.tan(randomNumber).toFixed(4)}</li>
+                    <li>Logaritmo (base 10): ${Math.log10(randomNumber).toFixed(4)}</li>
+                    <li>Logaritmo Natural: ${Math.log(randomNumber).toFixed(4)}</li>
+                    <li>Exponencial (e^x): ${Math.exp(randomNumber).toFixed(4)}</li>
+                    <li>É Par: ${randomNumber % 2 === 0 ? 'Sim' : 'Não'}</li>
+                    <li>É Ímpar: ${randomNumber % 2 !== 0 ? 'Sim' : 'Não'}</li>
+                    <li>Soma dos Dígitos: ${sumOfDigits(randomNumber)}</li>
+                    <li>Reverso: ${reverseNumber(randomNumber)}</li>
+                    <li>É Palíndromo: ${isPalindrome(randomNumber) ? 'Sim' : 'Não'}</li>
+                    <li>Posição na Sequência de Fibonacci: ${findFibonacciPosition(randomNumber)}</li>
+                </ul>
+            `;
+        }
+        // Call updateTip when the DOM content is loaded
+        document.addEventListener('DOMContentLoaded', updateTip);
+    </script>
+</body>
+</html>

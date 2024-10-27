@@ -1,0 +1,260 @@
+    /* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Main layout */
+.main-layout {
+    display: flex;
+    flex-direction: row-reverse;
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* Container styles */
+.container {
+    flex: 1;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Typography styles */
+.container h1 {
+    font-size: 36px;
+    color: #00008B;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.container p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Form element styles */
+.container input[type="text"] {
+    width: 180px;
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-bottom: 25px;
+    transition: border-color 0.3s ease;
+}
+
+.container input[type="text"]:focus {
+    outline: none;
+    border-color: #00008B;
+    font-weight: bold;
+}
+
+.container button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: #00008B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 25px;
+}
+
+.container button:hover {
+    background-color: #b6c7f8;
+    color: #000000;
+    transform: scale(1.08);
+}
+
+/* Result display styles */
+.container #result {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00008B;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    text-align: center;
+}   
+
+/* Attempts container styles */
+.attempts-container {
+    width: 200px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+/* Attempts list styles */
+#attempts-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#attempts-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #00008B;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+}
+
+#attempts-list li .guess {
+    flex-grow: 1;
+}
+
+#attempts-list li .attempt-number {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Animation styles */
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #f0f0f0;
+    top: -15px;
+    animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(900deg);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .container h1 {
+        font-size: 28px;
+    }
+
+    .container p {
+        font-size: 16px;
+    }
+
+    .container input[type="text"],
+    .container button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .attempts-container {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        border-radius: 15px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto;
+        padding: 20px;
+        background-color: #f0f0f0;
+    }
+}
+
+#brain {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    z-index: 9999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#brain:hover {
+    transform: scale(1.1);
+}
+
+#brain img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Reset Game Button */
+#resetButton {
+    display: block;
+    margin: 20px auto;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #00008B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#resetButton:hover {
+    background-color: #b6c7f8;
+    color: #000000;
+    transform: scale(1.08);
+}
+
+/* Attempts Number Display */
+#attempts-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: #00008B;
+    margin-top: 15px;
+    text-align: center;
+}
